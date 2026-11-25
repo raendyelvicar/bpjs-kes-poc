@@ -1,0 +1,285 @@
+{
+    "resourceLogs": [
+        {
+            "resource": {
+                "attributes": [
+                    {
+                        "key": "deployment.environment",
+                        "value": {
+                            "stringValue": "dev"
+                        }
+                    },
+                    {
+                        "key": "deployment.environment.name",
+                        "value": {
+                            "stringValue": "dev"
+                        }
+                    },
+                    {
+                        "key": "service.name",
+                        "value": {
+                            "stringValue": "WorkerSDMK.Api"
+                        }
+                    },
+                    {
+                        "key": "service.instance.id",
+                        "value": {
+                            "stringValue": "1b13cb9e-f107-4450-86e9-397d61c1164d"
+                        }
+                    },
+                    {
+                        "key": "telemetry.sdk.name",
+                        "value": {
+                            "stringValue": "opentelemetry"
+                        }
+                    },
+                    {
+                        "key": "telemetry.sdk.language",
+                        "value": {
+                            "stringValue": "dotnet"
+                        }
+                    },
+                    {
+                        "key": "telemetry.sdk.version",
+                        "value": {
+                            "stringValue": "1.15.0"
+                        }
+                    }
+                ]
+            },
+            "scopeLogs": [
+                {
+                    "scope": {
+                        "name": "Microsoft.AspNetCore.Hosting.Diagnostics"
+                    },
+                    "logRecords": [
+                        {
+                            "timeUnixNano": "1795578260544081500",
+                            "observedTimeUnixNano": "1795578260544081500",
+                            "severityNumber": 9,
+                            "severityText": "Information",
+                            "body": {
+                                "stringValue": "Request starting HTTP/1.1 GET http://10.42.4.84:5000/healthz - - -"
+                            },
+                            "attributes": [
+                                {
+                                    "key": "Protocol",
+                                    "value": {
+                                        "stringValue": "HTTP/1.1"
+                                    }
+                                },
+                                {
+                                    "key": "Method",
+                                    "value": {
+                                        "stringValue": "GET"
+                                    }
+                                },
+                                {
+                                    "key": "ContentType",
+                                    "value": {}
+                                },
+                                {
+                                    "key": "ContentLength",
+                                    "value": {}
+                                },
+                                {
+                                    "key": "Scheme",
+                                    "value": {
+                                        "stringValue": "http"
+                                    }
+                                },
+                                {
+                                    "key": "Host",
+                                    "value": {
+                                        "stringValue": "10.42.4.84:5000"
+                                    }
+                                },
+                                {
+                                    "key": "PathBase",
+                                    "value": {
+                                        "stringValue": ""
+                                    }
+                                },
+                                {
+                                    "key": "Path",
+                                    "value": {
+                                        "stringValue": "/healthz"
+                                    }
+                                },
+                                {
+                                    "key": "QueryString",
+                                    "value": {
+                                        "stringValue": ""
+                                    }
+                                },
+                                {
+                                    "key": "{OriginalFormat}",
+                                    "value": {
+                                        "stringValue": "Request starting {Protocol} {Method} {Scheme}://{Host}{PathBase}{Path}{QueryString} - {ContentType} {ContentLength}"
+                                    }
+                                },
+                                {
+                                    "key": "SpanId",
+                                    "value": {
+                                        "stringValue": "f2253a0976a5d735"
+                                    }
+                                },
+                                {
+                                    "key": "TraceId",
+                                    "value": {
+                                        "stringValue": "24cd6b5716017b271e6711209f8a0ebe"
+                                    }
+                                },
+                                {
+                                    "key": "ParentId",
+                                    "value": {
+                                        "stringValue": "0000000000000000"
+                                    }
+                                },
+                                {
+                                    "key": "ConnectionId",
+                                    "value": {
+                                        "stringValue": "0HNQ8BR0GUFPP"
+                                    }
+                                },
+                                {
+                                    "key": "RequestId",
+                                    "value": {
+                                        "stringValue": "0HNQ8BR0GUFPP:00000001"
+                                    }
+                                },
+                                {
+                                    "key": "RequestPath",
+                                    "value": {
+                                        "stringValue": "/healthz"
+                                    }
+                                }
+                            ],
+                            "flags": 1,
+                            "traceId": "24cd6b5716017b271e6711209f8a0ebe",
+                            "spanId": "f2253a0976a5d735"
+                        },
+                        {
+                            "timeUnixNano": "1795578260544161000",
+                            "observedTimeUnixNano": "1795578260544161000",
+                            "severityNumber": 9,
+                            "severityText": "Information",
+                            "body": {
+                                "stringValue": "Request finished HTTP/1.1 GET http://10.42.4.84:5000/healthz - 200 - - 0.1842ms"
+                            },
+                            "attributes": [
+                                {
+                                    "key": "ElapsedMilliseconds",
+                                    "value": {
+                                        "doubleValue": 0.1842
+                                    }
+                                },
+                                {
+                                    "key": "StatusCode",
+                                    "value": {
+                                        "intValue": "200"
+                                    }
+                                },
+                                {
+                                    "key": "ContentType",
+                                    "value": {}
+                                },
+                                {
+                                    "key": "ContentLength",
+                                    "value": {}
+                                },
+                                {
+                                    "key": "Protocol",
+                                    "value": {
+                                        "stringValue": "HTTP/1.1"
+                                    }
+                                },
+                                {
+                                    "key": "Method",
+                                    "value": {
+                                        "stringValue": "GET"
+                                    }
+                                },
+                                {
+                                    "key": "Scheme",
+                                    "value": {
+                                        "stringValue": "http"
+                                    }
+                                },
+                                {
+                                    "key": "Host",
+                                    "value": {
+                                        "stringValue": "10.42.4.84:5000"
+                                    }
+                                },
+                                {
+                                    "key": "PathBase",
+                                    "value": {
+                                        "stringValue": ""
+                                    }
+                                },
+                                {
+                                    "key": "Path",
+                                    "value": {
+                                        "stringValue": "/healthz"
+                                    }
+                                },
+                                {
+                                    "key": "QueryString",
+                                    "value": {
+                                        "stringValue": ""
+                                    }
+                                },
+                                {
+                                    "key": "{OriginalFormat}",
+                                    "value": {
+                                        "stringValue": "Request finished {Protocol} {Method} {Scheme}://{Host}{PathBase}{Path}{QueryString} - {StatusCode} {ContentLength} {ContentType} {ElapsedMilliseconds}ms"
+                                    }
+                                },
+                                {
+                                    "key": "SpanId",
+                                    "value": {
+                                        "stringValue": "f2253a0976a5d735"
+                                    }
+                                },
+                                {
+                                    "key": "TraceId",
+                                    "value": {
+                                        "stringValue": "24cd6b5716017b271e6711209f8a0ebe"
+                                    }
+                                },
+                                {
+                                    "key": "ParentId",
+                                    "value": {
+                                        "stringValue": "0000000000000000"
+                                    }
+                                },
+                                {
+                                    "key": "ConnectionId",
+                                    "value": {
+                                        "stringValue": "0HNQ8BR0GUFPP"
+                                    }
+                                },
+                                {
+                                    "key": "RequestId",
+                                    "value": {
+                                        "stringValue": "0HNQ8BR0GUFPP:00000001"
+                                    }
+                                },
+                                {
+                                    "key": "RequestPath",
+                                    "value": {
+                                        "stringValue": "/healthz"
+                                    }
+                                }
+                            ],
+                            "flags": 1,
+                            "traceId": "24cd6b5716017b271e6711209f8a0ebe",
+                            "spanId": "f2253a0976a5d735"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

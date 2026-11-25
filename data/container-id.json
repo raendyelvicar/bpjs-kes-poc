@@ -1,0 +1,209 @@
+{
+    "resourceLogs": [
+        {
+            "resource": {
+                "attributes": [
+                    {
+                        "key": "container.id",
+                        "value": {
+                            "stringValue": "71abd302f338b49e2683cd788e769a620d539c6ad2f8c5804c358c008eccbeee"
+                        }
+                    },
+                    {
+                        "key": "deployment.environment",
+                        "value": {
+                            "stringValue": "dev"
+                        }
+                    },
+                    {
+                        "key": "host.arch",
+                        "value": {
+                            "stringValue": "amd64"
+                        }
+                    },
+                    {
+                        "key": "host.name",
+                        "value": {
+                            "stringValue": "smartcorpu-be-java-7ff5fb5dc-sdrrw"
+                        }
+                    },
+                    {
+                        "key": "os.description",
+                        "value": {
+                            "stringValue": "Linux 5.15.0-204-generic"
+                        }
+                    },
+                    {
+                        "key": "os.type",
+                        "value": {
+                            "stringValue": "linux"
+                        }
+                    },
+                    {
+                        "key": "process.command_args",
+                        "value": {
+                            "arrayValue": {
+                                "values": [
+                                    {
+                                        "stringValue": "/opt/java/openjdk/bin/java"
+                                    },
+                                    {
+                                        "stringValue": "-Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties"
+                                    },
+                                    {
+                                        "stringValue": "-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"
+                                    },
+                                    {
+                                        "stringValue": "-Djdk.tls.ephemeralDHKeySize=2048"
+                                    },
+                                    {
+                                        "stringValue": "-Djava.protocol.handler.pkgs=org.apache.catalina.webresources"
+                                    },
+                                    {
+                                        "stringValue": "-Dsun.io.useCanonCaches=false"
+                                    },
+                                    {
+                                        "stringValue": "-Dorg.apache.catalina.security.SecurityListener.UMASK=0027"
+                                    },
+                                    {
+                                        "stringValue": "-XX:MaxRAMPercentage=75"
+                                    },
+                                    {
+                                        "stringValue": "-Duser.timezone=Asia/Jakarta"
+                                    },
+                                    {
+                                        "stringValue": "-Djava.security.egd=file:/dev/./urandom"
+                                    },
+                                    {
+                                        "stringValue": "-Dignore.endorsed.dirs="
+                                    },
+                                    {
+                                        "stringValue": "-classpath"
+                                    },
+                                    {
+                                        "stringValue": "/usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar"
+                                    },
+                                    {
+                                        "stringValue": "-Dcatalina.base=/usr/local/tomcat"
+                                    },
+                                    {
+                                        "stringValue": "-Dcatalina.home=/usr/local/tomcat"
+                                    },
+                                    {
+                                        "stringValue": "-Djava.io.tmpdir=/usr/local/tomcat/temp"
+                                    },
+                                    {
+                                        "stringValue": "org.apache.catalina.startup.Bootstrap"
+                                    },
+                                    {
+                                        "stringValue": "start"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "key": "process.executable.path",
+                        "value": {
+                            "stringValue": "/opt/java/openjdk/bin/java"
+                        }
+                    },
+                    {
+                        "key": "process.pid",
+                        "value": {
+                            "intValue": "1"
+                        }
+                    },
+                    {
+                        "key": "process.runtime.description",
+                        "value": {
+                            "stringValue": "Eclipse Adoptium OpenJDK 64-Bit Server VM 11.0.33+10"
+                        }
+                    },
+                    {
+                        "key": "process.runtime.name",
+                        "value": {
+                            "stringValue": "OpenJDK Runtime Environment"
+                        }
+                    },
+                    {
+                        "key": "process.runtime.version",
+                        "value": {
+                            "stringValue": "11.0.33+10"
+                        }
+                    },
+                    {
+                        "key": "service.instance.id",
+                        "value": {
+                            "stringValue": "11645b18-486d-4ddb-83b1-526345c5714f"
+                        }
+                    },
+                    {
+                        "key": "service.name",
+                        "value": {
+                            "stringValue": "smartcorpu-be-java"
+                        }
+                    },
+                    {
+                        "key": "service.version",
+                        "value": {
+                            "stringValue": "1.0.0"
+                        }
+                    },
+                    {
+                        "key": "telemetry.distro.name",
+                        "value": {
+                            "stringValue": "opentelemetry-java-instrumentation"
+                        }
+                    },
+                    {
+                        "key": "telemetry.distro.version",
+                        "value": {
+                            "stringValue": "2.11.0"
+                        }
+                    },
+                    {
+                        "key": "telemetry.sdk.language",
+                        "value": {
+                            "stringValue": "java"
+                        }
+                    },
+                    {
+                        "key": "telemetry.sdk.name",
+                        "value": {
+                            "stringValue": "opentelemetry"
+                        }
+                    },
+                    {
+                        "key": "telemetry.sdk.version",
+                        "value": {
+                            "stringValue": "1.45.0"
+                        }
+                    }
+                ]
+            },
+            "scopeLogs": [
+                {
+                    "scope": {
+                        "name": "app.bpjs.smartcorpu.enhance.LoggingAdvice"
+                    },
+                    "logRecords": [
+                        {
+                            "timeUnixNano": "1795578284736385000",
+                            "observedTimeUnixNano": "1795578284736385000",
+                            "severityNumber": 9,
+                            "severityText": "INFO",
+                            "body": {
+                                "stringValue": "[null] - GET /mobile-rest-smartcorpu/api/health\nHeader : {\"host\":\"10.42.239.46:8080\",\"connection\":\"close\",\"user-agent\":\"kube-probe/1.32\",\"accept\":\"*/*\"}\nParam : []\nResponse : {\"status\":\"UP\",\"app\":\"Webservice Smart Corpu\",\"version\":\"4.0.0\",\"serverTime\":\"2026-11-25T10:44:44.736215+07:00\",\"uptimeSeconds\":233585,\"javaVersion\":\"11.0.33\",\"ftpConfigLoaded\":true,\"datasources\":[{\"name\":\"jdbc/dianDS\",\"status\":\"UP\",\"responseMs\":2},{\"name\":\"jdbc/mobileDS\",\"status\":\"NOT_CONFIGURED\",\"responseMs\":0},{\"name\":\"jdbc/arsipDS\",\"status\":\"NOT_CONFIGURED\",\"responseMs\":0},{\"name\":\"jdbc/regDS\",\"status\":\"NOT_CONFIGURED\",\"responseMs\":0}]}\nExecution time : 3 ms\n-------------------------------------------------------------------------"
+                            },
+                            "flags": 1,
+                            "traceId": "4c68abcb8c184b3d56f3d6b9da04eb7b",
+                            "spanId": "39d14068b1406502"
+                        }
+                    ]
+                }
+            ],
+            "schemaUrl": "https://opentelemetry.io/schemas/1.24.0"
+        }
+    ]
+}
