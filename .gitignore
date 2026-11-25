@@ -1,0 +1,15 @@
+# Credentials: never commit. Copy .env.example / client.properties.example instead.
+.env
+.env.*
+!.env.example
+client.properties
+
+# Generated test data (large; ./load-data.sh week or gen_otel_logs.py makes it again)
+data/otel-logs-week.jsonl
+
+# OS / editor / Python clutter
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+*.pyc
