@@ -1,0 +1,26 @@
+{
+  "name": "es-sink-otel-logs-error_poc",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "tasks.max": "3",
+    "topics": "otel-logs-error_poc",
+    "connection.url": "https://172.23.79.89:9200",
+    "connection.username": "kafka_elastic",
+    "connection.password": "Wjnf4typ!",
+    "key.ignore": "true",
+    "schema.ignore": "true",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "errors.tolerance": "all",
+    "errors.log.enable": "true",
+    "errors.deadletterqueue.topic.name": "otel-logs-error-dlq_poc",
+    "errors.deadletterqueue.topic.replication.factor": "1",
+    "errors.deadletterqueue.context.headers.enable": "true",
+    "elasticsearch.security.protocol": "SSL",
+    "elasticsearch.https.ssl.truststore.location": "/var/ssl/private/es-truststore.jks",
+    "elasticsearch.https.ssl.truststore.password": "Kodehive123$%",
+    "elasticsearch.https.ssl.truststore.type": "JKS",
+    "elasticsearch.https.ssl.endpoint.identification.algorithm": ""
+  }
+}

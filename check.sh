@@ -3,8 +3,7 @@
 # Read-only. Needs: bash, curl, jq.
 set -uo pipefail
 cd "$(dirname "$0")"
-[ -f .env ] || { echo "Copy .env.example to .env and fill it in first."; exit 1; }
-set -a; . ./.env; set +a
+. ./env.sh
 . ./names.sh
 req() { local auth="$1"; shift; if [ -n "$auth" ]; then curl -sS -m 20 -u "$auth" "$@"; else curl -sS -m 20 "$@"; fi; }
 ksql() { jq -n --arg s "$1" '{ksql: $s, streamsProperties: {}}' \
@@ -27,6 +26,17 @@ s=$(req "${CONNECT_AUTH:-}" "$CONNECT_URL/connectors/$CONNECTOR/status")
 echo "$s" | jq -r '"  connector: \(.connector.state)", (.tasks[] | "  task \(.id): \(.state)\(if .trace then " - " + (.trace | split("\n")[0]) else "" end)")' 2>/dev/null \
   || { echo "  not found: $(echo "$s" | head -c 200)"; ok=1; }
 echo "$s" | jq -e '.connector.state == "RUNNING" and all(.tasks[]; .state == "RUNNING")' >/dev/null 2>&1 || ok=1
+if [ -n "$SHARED_CONNECTOR" ]; then
+  cfg=$(req "${CONNECT_AUTH:-}" "$CONNECT_URL/connectors/$CONNECTOR/config")
+  if echo "$cfg" | jq -e --arg t "$OUT_TOPIC" '((.topics // "") | split(",") | map(gsub("^\\s+|\\s+$"; "")) | index($t)) != null
+       or (has("topics.regex") and ($t | test("^(" + ."topics.regex" + ")$")))' >/dev/null 2>&1; then
+    echo "  existing connector, reads $OUT_TOPIC"
+  else
+    echo "  WARNING: existing connector does not read $OUT_TOPIC. Run ./setup.sh again."; ok=1
+  fi
+  # Its DLQ (if any) is the one to watch, and other topics' rejects land there too.
+  DLQ_TOPIC=$(echo "$cfg" | jq -r '."errors.deadletterqueue.topic.name" // empty' 2>/dev/null)
+fi
 
 echo "-- Elasticsearch index $INDEX"
 c=$(req "${ES_AUTH:-}" -H 'Content-Type: application/json' "$ES_URL/$INDEX/_search" \
@@ -45,7 +55,9 @@ fi
 echo "-- Rejected documents"
 # Connect creates the DLQ topic when the connector starts, so look for a message in it, not just the topic.
 # PRINT returns a "rowtime:" line for the first message; an empty topic returns nothing until the timeout.
-if ! ksql 'SHOW TOPICS;' | jq -e --arg t "$DLQ_TOPIC" '.[0].topics[]? | select(.name == $t)' >/dev/null; then
+if [ -z "$DLQ_TOPIC" ]; then
+  echo "  the connector has no DLQ: rejected documents only show up in the Connect worker log"
+elif ! ksql 'SHOW TOPICS;' | jq -e --arg t "$DLQ_TOPIC" '.[0].topics[]? | select(.name == $t)' >/dev/null; then
   echo "  none (no $DLQ_TOPIC topic yet)"
 elif jq -n --arg t "$DLQ_TOPIC" '{ksql: ("PRINT '"'"'" + $t + "'"'"' FROM BEGINNING LIMIT 1;"), streamsProperties: {}}' \
      | req "${KSQL_AUTH:-}" -m 8 -X POST -H 'Content-Type: application/vnd.ksql.v1+json' --data @- "$KSQL_URL/query" 2>/dev/null \

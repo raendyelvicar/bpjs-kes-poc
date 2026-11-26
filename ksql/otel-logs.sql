@@ -95,9 +95,12 @@ SELECT
   scope_name AS `scope_name`,
   rec->`traceId` AS `trace_id`,
   rec->`spanId` AS `span_id`,
-  resource_attrs AS `resource`,
+  -- Dots in resource/attribute keys become underscores (deployment.environment.name -> deployment_environment_name).
+  -- Elasticsearch reads dots as nesting, so "deployment.environment" next to "deployment.environment.name" would be
+  -- a field and an object at once and the document is rejected. With underscores no index template is needed.
+  TRANSFORM(resource_attrs, (k, v) => REPLACE(k, '.', '_'), (k, v) => v) AS `resource`,
   AS_MAP(
-    TRANSFORM(rec->`attributes`, a => a->`key`),
+    TRANSFORM(rec->`attributes`, a => REPLACE(a->`key`, '.', '_')),
     TRANSFORM(rec->`attributes`, a => COALESCE(a->`value`->`stringValue`, a->`value`->`intValue`,
       a->`value`->`doubleValue`, a->`value`->`boolValue`, a->`value`->`arrayValue`, a->`value`->`kvlistValue`))
   ) AS `attributes`

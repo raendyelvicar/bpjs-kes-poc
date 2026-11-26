@@ -3,9 +3,16 @@
 .env.*
 !.env.example
 client.properties
+client.*.properties
+!client.properties.example
+certs/
+*.p12
+*.jks
 
 # Generated test data (large; ./load-data.sh week or gen_otel_logs.py makes it again)
 data/otel-logs-week.jsonl
+data/otel-logs-aspnet.jsonl
+data/otel-logs-python.jsonl
 
 # OS / editor / Python clutter
 .DS_Store
@@ -13,3 +20,6 @@ data/otel-logs-week.jsonl
 .idea/
 __pycache__/
 *.pyc
+connector-config.*.json
+dry-run/
+dry-run-*/
